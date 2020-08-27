@@ -59,11 +59,11 @@ for model, belt in belts.items():
 
 
 
-![png](output_8_1.png)
+![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_8_1.png)
 
 
 
-![png](output_8_2.png)
+![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_8_2.png)
 
 
 ### Calculating T-statistic and p_value
@@ -108,4 +108,4 @@ for m in [1, 2, 3, 4]:
 ```
 
 
-![png](output_14_0.png)
+![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_14_0.png)
