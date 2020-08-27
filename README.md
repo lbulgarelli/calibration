@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/lbulgarelli/calibration.svg?branch=master)](https://travis-ci.org/lbulgarelli/calibration)
+
 ## Calibration Belt
 #### Assessment of the calibration belt and goodness of fit of binomial models.
 
