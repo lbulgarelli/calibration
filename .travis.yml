@@ -1,0 +1,17 @@
+# Link repository to Travis CI
+# https://travis-ci.org/
+
+# Set the language
+language: python
+python:
+    - "3.8.5"
+
+before_install:
+  - pip install --upgrade pip
+
+# command to install dependencies
+install:
+  - pip install requirements.txt
+
+# command to run tests
+script: pytest
