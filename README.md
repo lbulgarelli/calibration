@@ -6,7 +6,7 @@ Based on `Nattino, Giovanni, Stefano Finazzi, and Guido Bertolini. "A new calibr
 ## Installation
 
 ```Shell
-pip install calibration
+pip install calibration-belt
 ```
 
 ## Usage
