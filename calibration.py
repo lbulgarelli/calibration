@@ -272,7 +272,11 @@ class CalibrationBelt():
         }
         return boundaries
 
-    def plot(self, confidences=[.8, .95], q=.95, **kwargs):
+    def plot(self, confidences=None, q=.95, **kwargs):
+
+        if confidences is None:
+            confidences = [.8, .95]
+
         # Select value of m
         m, _ = self.forward_select(q, **kwargs)
 
