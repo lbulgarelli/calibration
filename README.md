@@ -16,7 +16,6 @@ pip install calibration-belt
 ```python
 import pandas as pd
 from pathlib import Path
-from scipy.special import expit
 from calibration import CalibrationBelt
 
 import matplotlib.pyplot as plt
