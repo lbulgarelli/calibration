@@ -280,7 +280,7 @@ class CalibrationBelt():
         if p_value < .001:
             p_text = "< 0.001"
         else:
-            p_text = str(p_value)
+            p_text = f"{p_value:.3f}"
 
         # Calculate boundaries for each confidence level
         for confidence in confidences:

@@ -1,17 +1,12 @@
 [![Build Status](https://travis-ci.org/lbulgarelli/calibration.svg?branch=master)](https://travis-ci.org/lbulgarelli/calibration)
 
-## Calibration Belt
-#### Assessment of the calibration belt and goodness of fit of binomial models.
-
-Based on `Nattino, Giovanni, Stefano Finazzi, and Guido Bertolini. "A new calibration test and a reappraisal of the calibration belt for the assessment of prediction models based on dichotomous outcomes." Statistics in medicine 33.14 (2014): 2390-2407.`
+# Calibration Belt
+### Assessment of the calibration belt and goodness of fit of binomial models.
 
 ## Installation
 
-```Shell
-pip install calibration-belt
-```
+`pip install calibration`
 
-## Usage
 
 ```python
 import pandas as pd
@@ -22,7 +17,7 @@ import matplotlib.pyplot as plt
 %matplotlib inline  
 ```
 
-### Loading data
+## Loading data
 
 
 ```python
@@ -37,7 +32,7 @@ predictors = {
 }
 ```
 
-### CalibrationBelt object
+## CalibrationBelt object
 
 
 ```python
@@ -48,7 +43,7 @@ for key, E in predictors.items():
     belts[key] = CalibrationBelt(P, E)
 ```
 
-### Plotting the belt
+## Plotting the belt
 
 
 ```python
@@ -59,15 +54,14 @@ for model, belt in belts.items():
 ```
 
 
-
-![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_8_1.png)
-
+![png](output_8_1.png)
 
 
-![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_8_2.png)
+
+![png](output_8_2.png)
 
 
-### Calculating T-statistic and p_value
+## Calculating T-statistic and p_value
 
 
 ```python
@@ -80,7 +74,7 @@ for model, belt in belts.items():
     Model: NN , T-statistic: 31.05418 , p-value: 0.00001
 
 
-### Calculating boundaries of the belt
+## Calculating boundaries of the belt
 
 
 ```python
@@ -89,10 +83,10 @@ lower, upper = boundaries[0, 1:]
 print(f"Lower bound: {lower:.4f}, Upper bound: {upper:.4f}")
 ```
 
-    Lower bound: 0.0001, Upper bound: 0.0493
+    Lower bound: 0.0000, Upper bound: 0.0493
 
 
-### Cumulative distribution function
+## Cumulative distribution function
 
 The plot below shows the computed distribution of the T-statistic in polynomials of degree m.
 
@@ -109,4 +103,9 @@ for m in [1, 2, 3, 4]:
 ```
 
 
-![png](https://raw.githubusercontent.com/lbulgarelli/calibration/master/output_14_0.png)
+![png](output_14_0.png)
+
+
+# References
+
+Based on `Nattino, Giovanni, Stefano Finazzi, and Guido Bertolini. "A new calibration test and a reappraisal of the calibration belt for the assessment of prediction models based on dichotomous outcomes." Statistics in medicine 33.14 (2014): 2390-2407.`
