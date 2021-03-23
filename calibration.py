@@ -204,7 +204,9 @@ class CalibrationBelt():
         boundary = model.llf - k / 2
 
         # Create subset based on size
-        Ge_sub = np.linspace(np.min(Ge), np.max(Ge), num=size)
+        logit_sub = np.linspace(np.min(Ge), np.max(Ge), num=size//2)
+        e_sub = np.linspace(np.min(self.E), np.max(self.E), num=size//2)
+        Ge_sub = np.sort(np.append(logit_sub, logit(e_sub)))
         GeM_sub = Ge_sub[np.newaxis].T ** M
 
         # Constraint function (Eq27)
@@ -214,7 +216,7 @@ class CalibrationBelt():
 
             # Clip probability to epsilon so
             # we can compute log-likelihood
-            eps = 1e-2
+            eps = 1e-5
             alphaE = np.clip(alphaE, eps, 1-eps)
 
             # Compute Log-likelihood
@@ -241,8 +243,7 @@ class CalibrationBelt():
                 fun=self._fun, x0=model.params, args=args,
                 method='trust-constr', jac=self._jac,
                 hess=lambda alpha, *args: np.zeros((m+1,)),
-                constraints=constraints, tol=1e-5,
-                options={"initial_tr_radius": 5}
+                constraints=constraints, tol=1e-5
             ).x
 
             # Maximize alpha to find upper bound
@@ -251,8 +252,7 @@ class CalibrationBelt():
                 fun=self._fun, x0=model.params, args=args,
                 method='trust-constr', jac=self._jac,
                 hess=lambda alpha, *args: np.zeros((m+1,)),
-                constraints=constraints, tol=1e-5,
-                options={"initial_tr_radius": 5}
+                constraints=constraints, tol=1e-5
             ).x
 
             # Calculate bounds
@@ -268,7 +268,6 @@ class CalibrationBelt():
         return boundaries
 
     def plot(self, confidences=None, q=.95, **kwargs):
-
         if confidences is None:
             confidences = [.8, .95]
 
