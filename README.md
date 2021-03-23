@@ -5,7 +5,7 @@
 
 ## Installation
 
-`pip install calibration`
+`pip install calibration-belt`
 
 
 ```python
