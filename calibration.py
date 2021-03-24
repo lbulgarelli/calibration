@@ -1,5 +1,5 @@
 __author__ = "Lucas Bulgarelli <lucas1@mit.edu>"
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 
 import numpy as np
 from tqdm import tqdm
